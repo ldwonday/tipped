@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+	<ModulePrefs title="Tipped examples javascript" /> 
+	<Content type="html">
+		<![CDATA[ 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+		<script type = "text/javascript">
+			alert('test');
+			$.getScript('http://tipped.googlecode.com/svn/trunk/jquery.tipped-latest.js',function(){
+				$.getScript('http://tipped.googlecode.com/svn/wiki/code/javascript/SyntaxHighlighter/shCore.min.js',function(){
+					$.getScript('http://tipped.googlecode.com/svn/wiki/code/javascript/SyntaxHighlighter/shBrushJScript.js',function(){
+						$.getScript('http://tipped.googlecode.com/svn/wiki/code/javascript/SyntaxHighlighter/shBrushPhp.js',function(){
+							$.getScript('http://tipped.googlecode.com/svn/wiki/code/javascript/SyntaxHighlighter/shBrushXml.js',function(){
+								
+								/* code highlight */
+								SyntaxHighlighter.defaults['toolbar'] = false;
+								SyntaxHighlighter.highlight();
+								
+								/* Tooltips */
+								$("img[alt=tipped-title-hover]").tipped();
+								$("img[alt=tipped-string-hover]").tipped({
+									source:'This is another string'
+								});
+								$("img[alt=tipped-function-hover]").tipped({
+									source:function($trigger){
+										var $allIcons = $("img[src$='fruit.png']");
+										var index = $allIcons.index($trigger)+1
+										
+										return "This is icon #"+index+" of "+$allIcons.length;
+									}
+								});
+								$("img[alt=tipped-ajax-hover]").tipped({
+									source:'url',
+									throbber:'http://tipped.googlecode.com/svn/wiki/code/images/throbber.gif',
+                                    url:'http://www.gstatic.com/codesite/ph/images/defaultlogo.png'
+								});
+								$("img[alt=tipped-string-hover]").tipped({
+									mode:'click',
+									params:function($trigger){
+										var $allIcons = $trigger.parent().children('img');
+										var index = $allIcons.index($trigger)+1 
+										return {current:index,all:$allIcons.length};
+									},
+									source:'url',
+									throbber:'http://tipped.googlecode.com/svn/wiki/code/images/throbber.gif',
+                                    url:'http://www.gstatic.com/codesite/ph/images/defaultlogo.png'
+								});
+							});
+						});
+					});
+				});
+			});
+	   </script>
+     ]]>
+  </Content> 
+</Module>
