@@ -1,0 +1,97 @@
+#summary Options available for Tipped
+
+By default, Tipped creates a hover triggered tip, pulling the value from the _title_ attribute. Changing these options will alter that behaviour.
+
+
+= Options =
+*ajaxType*
+ The type of HTTP request to make.
+
+ _Possible values_: "POST", "GET"
+
+ _Default_: "POST"
+
+*cache*
+ Whether or not to cache AJAX requests.  Cache is based solely on URL, not URL + data, so if you are making multiple requests to the same URL with different data, turn off cache.
+
+ ex: `{params:{id:1},url:'mypage.php'}` and `{params:{id:2},url:'mypage.php'}` will access the same value in the cache.
+
+ _Default_: false
+
+*closer*
+ The HTML to display when a tip is to be manually closed (ie: when triggered by a click).
+ 
+ All HTML in 'closer' will be injected inside another element that has the close listener, so you don't need to specify the #tipped-closer element in this value.
+
+ _Default_: "Close"
+
+*marginX*
+ The pixels to the right of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
+ 
+ _Possible values_: Any integer.  Negative numbers will position the tip to the left of the right edge of the triggering element.
+
+ _Default_: 10
+
+*marginY*
+ The pixels to the bottom of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
+
+ _Possible values_: Any integer.  Negative numbers will position the tip above of the bottom edge of the triggering element
+ 
+ _Default_: 10
+
+*mode*
+
+ The method by which the tip shows & hides.  "hover" shows and hides the tip when the trigger is hovered.  "click" shows the tip when the trigger is clicked, and requires clicking of the closer to go away
+
+ _Possible values_: "hover", "click"
+
+ _Default_: "hover"
+
+
+*params*
+
+ An object representing the parameters to send along with an AJAX request as the "data" parameter.
+
+ _Possible values_:
+
+    » A function: The function must return an object, which will be passed as "data".  This function will be passed a jQuery object representing the triggering element.
+
+    » An object: Will be passed as "data"
+
+ _Default_: An empty object, _{}_
+
+*source*
+
+ The source of the value to display
+
+ _Possible values_:
+
+  » _title_: Value to display will be pulled from the "title" attribute of the triggering element.
+
+  » _url_: Value to display will be returned by an AJAX call.  This value must be the letters "u", "r", "l", not a web address.  The address to make the call to is defined with the "url" option.
+
+  » _A function_: Value to display will be returned from the this function.  The function will be passed a jQuery object representing the triggering element.
+
+  » _Any other string_: Will be treated as the value to display.
+
+ _Default_: "title"
+
+*themeroller*
+
+ Whether to make apply themeroller classes or not
+
+ _Possible values_: true, false
+
+ _Default: false
+
+*throbber* 	
+
+ The URL to the image to display while the AJAX request is being sent.  If blank, no throbber will be shown.
+
+ _Default_: An empty string, ''
+
+*url*
+
+ The web address to make the AJAX request to. Unused if the source option is not "url".
+
+ _Default_: An empty string, ''
