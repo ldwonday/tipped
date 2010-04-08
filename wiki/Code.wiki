@@ -1,5 +1,7 @@
 #summary Code examples
 
+<wiki:gadget url="http://tipped.googlecode.com/svn/wiki/code/javascript/javascript.xml" width="0" height="0" border="0"/>
+
 ==Show title on hover==
 <img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" title = "Fruit" alt = "tipped-title-hover" />
 
