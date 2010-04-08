@@ -70,3 +70,22 @@ $(document).ready(function(){
 });
 }}}
 _If your AJAX returned content is static, use the [Options "cache" option] to cache AJAX results & prevent repeated AJAX calls being triggered by the same element._
+
+
+== Show the results of an AJAX call on click ==
+<img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" alt = "tipped-ajax-click" />
+
+HTML:
+{{{
+<img src = "fruit.jpg" alt = "tipped-ajax-click"/>
+}}}
+Javascript:
+{{{
+$(document).ready(function(){
+  $("img[alt=tipped-ajax-click]").tipped({
+    source:'url',
+    throbber:'http://tipped.googlecode.com/svn/wiki/code/images/throbber.gif',
+    url:'http://www.gstatic.com/codesite/ph/images/defaultlogo.png'
+  });
+});
+}}}
