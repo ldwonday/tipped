@@ -69,4 +69,4 @@ $(document).ready(function(){
   });
 });
 }}}
-_If your AJAX returned content is static, use the [Options "cache"] option to cache AJAX results & prevent repeated AJAX calls being triggered by the same element._
+_If your AJAX returned content is static, use the [Options] to cache AJAX results & prevent repeated AJAX calls being triggered by the same element._
