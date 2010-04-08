@@ -3,4 +3,4 @@
 = Code Examples =
 These examples are not functional, as I haven't figured out how to bring in CSS & Javascript
 
-<wiki:gadget url="http://tipped.googlecode.com/svn/wiki/code/javascript.xml"/>
+<wiki:gadget url="http://tipped.googlecode.com/svn/wiki/code/javascript/javascript.xml"/>
