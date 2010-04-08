@@ -1,10 +1,6 @@
-#summary Code examples
-
-<wiki:gadget url="http://tipped.googlecode.com/svn/wiki/code/javascript/javascript.xml" width="0" height="0" border="0"/>
+#summary Code examples.  Working examples are included in the download.
 
 ==Show title on hover==
-<img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" title = "Fruit" alt = "tipped-title-hover" />
-
 HTML:
 {{{
 <img src = "fruit.png" title = "Fruit" alt = "tipped-title-hover" />
@@ -18,8 +14,6 @@ $(document).ready(function(){
 }}}
 
 == Show some different text on hover ==
-<img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" title = "Fruit" alt = "tipped-title-hover" />
-
 HTML:
 {{{
 <img src = "fruit.jpg" alt = "tipped-string-hover"/>
@@ -34,8 +28,6 @@ $(document).ready(function(){
 }}}
 
 == Show the results of a function on hover ==
-<img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" alt = "tipped-function-hover" />
-
 HTML:
 {{{
 <img src = "fruit.jpg" alt = "tipped-function-hover"/>
@@ -55,8 +47,6 @@ $(document).ready(function(){
 }}}
 
 == Show the results of an AJAX call on hover ==
-<img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" alt = "tipped-ajax-hover" />
-
 HTML:
 {{{
 <img src = "fruit.jpg" alt = "tipped-ajax-hover"/>
@@ -66,8 +56,8 @@ Javascript:
 $(document).ready(function(){
   $("img[alt=tipped-ajax-hover]").tipped({
     source:'url',
-    throbber:'http://tipped.googlecode.com/svn/wiki/code/images/throbber.gif',
-    url:'http://www.gstatic.com/codesite/ph/images/defaultlogo.png'
+    throbber:'/path/to/animated.gif',
+    url:'http://path.to/file'
   });
 });
 }}}
@@ -75,7 +65,6 @@ _If your AJAX returned content is static, use the [Options "cache" option] to ca
 
 
 == Show the results of an AJAX call on click ==
-<img src = "http://tipped.googlecode.com/svn/wiki/code/images/fruit.png" alt = "tipped-ajax-click" />
 
 HTML:
 {{{
@@ -84,10 +73,11 @@ HTML:
 Javascript:
 {{{
 $(document).ready(function(){
-  $("img[alt=tipped-ajax-click]").tipped({
+  $("img[alt=tipped-ajax-hover]").tipped({
+    mode:'click'
     source:'url',
-    throbber:'http://tipped.googlecode.com/svn/wiki/code/images/throbber.gif',
-    url:'http://www.gstatic.com/codesite/ph/images/defaultlogo.png'
+    throbber:'/path/to/animated.gif',
+    url:'http://path.to/file'
   });
 });
 }}}
