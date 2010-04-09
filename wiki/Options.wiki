@@ -7,8 +7,7 @@ By default, Tipped creates a hover triggered tip, pulling the value from the _ti
 *ajaxType*
  The type of HTTP request to make.
 
- _Possible values_: "POST", "GET"
-
+ _Possible values_: "POST", "GET"<br>
  _Default_: "POST"
 
 *cache*
@@ -16,6 +15,7 @@ By default, Tipped creates a hover triggered tip, pulling the value from the _ti
 
  ex: `{params:{id:1},url:'mypage.php'}` and `{params:{id:2},url:'mypage.php'}` will access the same value in the cache.
 
+ _Possible values: true, false<br>
  _Default_: false
 
 *closer*
@@ -28,26 +28,31 @@ By default, Tipped creates a hover triggered tip, pulling the value from the _ti
 *marginX*
  The pixels to the right of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
  
- _Possible values_: Any integer.  Negative numbers will position the tip to the left of the right edge of the triggering element.
-
+ _Possible values_: Any integer.  Negative numbers will position the tip to the left of the right edge of the triggering element.<br>
  _Default_: 10
 
 *marginY*
  The pixels to the bottom of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
 
- _Possible values_: Any integer.  Negative numbers will position the tip above of the bottom edge of the triggering element
- 
+ _Possible values_: Any integer.  Negative numbers will position the tip above of the bottom edge of the triggering element.<br> 
  _Default_: 10
 
 *mode*
 
  The method by which the tip shows & hides.  "hover" shows and hides the tip when the trigger is hovered.  "click" shows the tip when the trigger is clicked, and requires clicking of the closer to go away
 
- _Possible values_: "hover", "click"
-
+ _Possible values_: "hover", "click"<br>
  _Default_: "hover"
 
 
+*oversizeStick*
+
+ A boolean representing whether or not to make the tooltip behave like it is 'click' mode, if the content is larger than the screen.  Too-large tooltips automatically (as of 1.4) get resized to the screen & scrollbars appear.  The `oversizeStick` option makes the tooltip show the `closer`, and not hide on mouseout.
+
+ _Possible values_: true, false<br>
+ _Default_: true
+
+ 
 *params*
 
  An object representing the parameters to send along with an AJAX request as the "data" parameter.
@@ -80,8 +85,7 @@ By default, Tipped creates a hover triggered tip, pulling the value from the _ti
 
  Whether to make apply themeroller classes or not
 
- _Possible values_: true, false
-
+ _Possible values_: true, false<br>
  _Default: false
 
 *throbber* 	
