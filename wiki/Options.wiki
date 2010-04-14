@@ -7,95 +7,126 @@ By default, Tipped creates a hover triggered tip, pulling the value from the _ti
 *ajaxType*
  The type of HTTP request to make.
 
- _Possible values_: "POST", "GET"<br>
- _Default_: "POST"
+ _Possible values_: `POST`, `GET`<br>
+ _Default_: `POST`
+
 
 *cache*
  Whether or not to cache AJAX requests.  Cache is based solely on URL, not URL + data, so if you are making multiple requests to the same URL with different data, turn off cache.
 
  ex: `{params:{id:1},url:'mypage.php'}` and `{params:{id:2},url:'mypage.php'}` will access the same value in the cache.
 
- _Possible values: true, false<br>
- _Default_: false
+ _Possible values_: `true`, `false`<br>
+ _Default_: `false`
+
 
 *closer*
  The HTML to display when a tip is to be manually closed (ie: when triggered by a click).
  
- All HTML in 'closer' will be injected inside another element that has the close listener, so you don't need to specify the #tipped-closer element in this value.
+ All HTML in *closer* will be injected inside another element that has the close listener, so you don't need to specify the #tipped-closer element in this value.
 
- _Default_: "Close"
+ _Default_: `Close`
+
+
+*delay*
+ The milliseconds to wait between when the trigger is hovered over, and the tip appears. Ignored if *mode* is `click`.
+
+ _Default_: `0`
+
 
 *marginX*
  The pixels to the right of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
  
  _Possible values_: Any integer.  Negative numbers will position the tip to the left of the right edge of the triggering element.<br>
- _Default_: 10
+ _Default_: `10`
+
 
 *marginY*
  The pixels to the bottom of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
 
  _Possible values_: Any integer.  Negative numbers will position the tip above of the bottom edge of the triggering element.<br> 
- _Default_: 10
+ _Default_: `10`
+
 
 *mode*
-
  The method by which the tip shows & hides.  "hover" shows and hides the tip when the trigger is hovered.  "click" shows the tip when the trigger is clicked, and requires clicking of the closer to go away
 
- _Possible values_: "hover", "click"<br>
- _Default_: "hover"
+ _Possible values_: `hover`, `click`<br>
+ _Default_: `hover`
 
 
 *oversizeStick*
+ A boolean representing whether or not to make the tooltip behave like it is 'click' mode, if the content is larger than the screen.  Too-large tooltips automatically (as of 1.4) get resized to the screen & scrollbars appear.  The *oversizeStick* option makes the tooltip show the *closer*, and not hide on mouseout.
 
- A boolean representing whether or not to make the tooltip behave like it is 'click' mode, if the content is larger than the screen.  Too-large tooltips automatically (as of 1.4) get resized to the screen & scrollbars appear.  The `oversizeStick` option makes the tooltip show the `closer`, and not hide on mouseout.
-
- _Possible values_: true, false<br>
- _Default_: true
+ _Possible values_: `true`, `false`<br>
+ _Default_: `true`
 
  
 *params*
-
- An object representing the parameters to send along with an AJAX request as the "data" parameter.
+ An object representing the parameters to send along with an AJAX request as the `data` parameter.
 
  _Possible values_:
+  » A function: The function must return an object, which will be passed as the `data` parameter to $.ajax().  This function will be passed a jQuery object representing the triggering element.<br>
+  » An object: Will be passed as the `data` parameter to $.ajax()
 
-    » A function: The function must return an object, which will be passed as "data".  This function will be passed a jQuery object representing the triggering element.
+ _Default_: An empty object, `{}`
 
-    » An object: Will be passed as "data"
 
- _Default_: An empty object, _{}_
+*position*
+ The method Tipped will use to determine position.
+ 
+ _Possible values_:
+  » `absolute`: The position of the tip will be determined by the posX and posY parameters, with no application of the margins and no consideration for where the triggering element is.<br>
+  » `mouse`: The position of the tip will be determined by the location of the mouse when the tip is triggered. Margins will be applied.<br>
+  » `element`: The position of the tip will be determined by the bottom right corner of the triggering element. Margins will be applied.
+
+ _Default_: `element`
+
+
+*posX*
+ The absolute position on the x-axis the tooltip will have when displayed.  Only used if the 'position' option is "absolute"
+
+ _Possible values_:
+  » A callback: The function will be passed a jQuery object representing the triggering element and must return an integer.<br />
+  » An integer
+ _Default_: `0`
+
+
+*posY*
+ The absolute position on the y-axis the tooltip will have when displayed.  Only used if the 'position' option is "absolute"
+
+ _Possible values_:
+  » A callback: The function will be passed a jQuery object representing the triggering element and must return an integer.<br>
+  » An integer
+ _Default_: `0`
+
 
 *source*
-
  The source of the value to display
 
  _Possible values_:
+  » `title`: Value to display will be pulled from the "title" attribute of the triggering element.<br>
+  » `url`: Value to display will be returned by an AJAX call.  This value must be the letters "u", "r", "l", not a web address.  The address to make the call to is defined with the *url* option.<br>
+  » A function: Value to display will be returned from the this function.  The function will be passed a jQuery object representing the triggering element.<br>
+  » Any other string: Will be treated as the value to display.
 
-  » _title_: Value to display will be pulled from the "title" attribute of the triggering element.
+ _Default_: `title`
 
-  » _url_: Value to display will be returned by an AJAX call.  This value must be the letters "u", "r", "l", not a web address.  The address to make the call to is defined with the "url" option.
-
-  » _A function_: Value to display will be returned from the this function.  The function will be passed a jQuery object representing the triggering element.
-
-  » _Any other string_: Will be treated as the value to display.
-
- _Default_: "title"
 
 *themeroller*
-
  Whether to make apply themeroller classes or not
 
- _Possible values_: true, false<br>
- _Default: false
+ _Possible values_: `true`, `false`<br>
+ _Default: `false`
+
 
 *throbber* 	
-
  The URL to the image to display while the AJAX request is being sent.  If blank, no throbber will be shown.
 
  _Default_: An empty string, ''
 
-*url*
 
+*url*
  The web address to make the AJAX request to. Unused if the source option is not "url".
 
  _Default_: An empty string, ''
