@@ -34,6 +34,12 @@ By default, Tipped creates a hover triggered tip, pulling the value from the _ti
  _Default_: `0`
 
 
+*hideDelay*
+ The milliseconds to wait between when the trigger is hovered out, and the tip disappears. Ignored if *mode* is `click`.
+
+ _Default_: `0`
+
+
 *marginX*
  The pixels to the right of the element that the tip should appear.  This amount will be overridden if necessary to ensure the entire tip shows on the screen.
  
